@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\KompetensiController;
+use App\Http\Controllers\MataPelajaranController;
+use App\Http\Controllers\PermohonanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,9 +17,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/beranda', [HomeController::class, 'beranda']);
+Route::post('/admin/login', [AuthController::class, 'validateUser']);
+Route::post('/admin/logout', [AuthController::class, 'logout']);
+
+Route::get('/beranda', [HomeController::class, 'beranda'])->name('login');
 Route::get('/visi-misi', [HomeController::class, 'visiMisi']);
-Route::get('/permohonan-kompetensi', [KompetensiController::class, 'index']);
-Route::get('/permohonan-kompetensi/data', [KompetensiController::class, 'data']);
-Route::post('/permohonan-kompetensi/data', [KompetensiController::class, 'storeData']);
-Route::get('/permohonan-kompetensi/bukti', [KompetensiController::class, 'bukti']);
+
+Route::group(['prefix' => "permohonan-kompetensi"], function () {
+    Route::get('/', [PermohonanController::class, 'index']);
+    Route::get('/data', [PermohonanController::class, 'data']);
+    Route::post('/data', [PermohonanController::class, 'storeData']);
+    Route::get('/bukti', [PermohonanController::class, 'bukti']);
+});
+
+Route::group(['middleware' => "auth"], function () {
+    Route::get("/dashboard", function () {
+        return view('layouts.dashboard');
+    });
+
+    Route::resource('/mata-pelajaran', MataPelajaranController::class)->except('show');
+});
