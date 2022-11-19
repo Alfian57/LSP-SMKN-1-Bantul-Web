@@ -5,7 +5,10 @@
     <title>Admin Dashboard</title>
 
     <link href="/css/dashboard.css" rel="stylesheet" />
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    {{-- Bootstrap --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 
 </head>
@@ -28,15 +31,17 @@
             @include('components.dashboard-footer')
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+
+    {{-- Bootstrap --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
+
+    {{-- JQuery --}}
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+        crossorigin="anonymous"></script>
+
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-
-    {{-- <script src="/js/core/jquery.3.2.1.min.js"></script>
-    <script src="/js/core/popper.min.js"></script>
-
-    <!-- Datatables -->
-    <script src="/js/plugin/datatables/datatables.min.js"></script> --}}
 
     <script src="/js/dashboard.js"></script>
 </body>
