@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             MataPelajaranSeeder::class,
             JenisStandarSeeder::class,
             UnitKompetensiSeeder::class,
-            DetailUnitKompetensiSeeder::class
+            SubUnitKompetensiSeeder::class
         ]);
     }
 }

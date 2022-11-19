@@ -11,6 +11,14 @@
                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                 Mata Pelajaran
             </a>
+            <a class="nav-link" href="/jenis-standar">
+                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                Jenis Standar
+            </a>
+            <a class="nav-link" href="/unit-kompetensi">
+                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                Unit Kompetensi
+            </a>
             <!-- <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                     Layouts
@@ -31,10 +39,15 @@
                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                 Tables
             </a> --}}
+            <div class="sb-sidenav-menu-heading">Administrator</div>
+            <a class="nav-link" href="/administrator">
+                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                Administrator
+            </a>
         </div>
     </div>
     <div class="sb-sidenav-footer">
         <div class="small">Logged in as:</div>
-        {name}
+        {{ Auth::user()->nama }}
     </div>
 </nav>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\MataPelajaran;
+use App\Models\UnitKompetensi;
 use Illuminate\Http\Request;
 
 class PermohonanController extends Controller
@@ -24,7 +25,9 @@ class PermohonanController extends Controller
 
     public function data()
     {
-        return view('permohonan-kompetensi.data');
+        return view('permohonan-kompetensi.data', [
+            'unitKompetensis' => UnitKompetensi::with('jenis_standar')->latest()->get()
+        ]);
     }
 
     public function storeData(Request $request)

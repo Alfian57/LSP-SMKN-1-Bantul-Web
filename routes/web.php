@@ -1,9 +1,13 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\JenisStandarController;
 use App\Http\Controllers\MataPelajaranController;
 use App\Http\Controllers\PermohonanController;
+use App\Http\Controllers\SubUnitKompetensiController;
+use App\Http\Controllers\UnitKompetensiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,4 +40,8 @@ Route::group(['middleware' => "auth"], function () {
     });
 
     Route::resource('/mata-pelajaran', MataPelajaranController::class)->except('show');
+    Route::resource('/jenis-standar', JenisStandarController::class)->except('show');
+    Route::resource('/unit-kompetensi', UnitKompetensiController::class);
+    Route::resource('/unit-kompetensi/{kodeUnit}/sub', SubUnitKompetensiController::class)->except('show');
+    Route::resource('/administrator', AdminController::class)->except('show');
 });
