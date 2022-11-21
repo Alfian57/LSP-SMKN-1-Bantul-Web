@@ -91,9 +91,22 @@ class SubUnitKompetensiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($kodeUnit, $id)
     {
-        //
+        $unitKompetensi = UnitKompetensi::where('kode_unit', $kodeUnit)->first();
+        $subUnitKompetensi = SubUnitKompetensi::where('id', $id)->first();
+
+        if ($unitKompetensi == null) {
+            return back();
+        }
+        if ($subUnitKompetensi == null) {
+            return back();
+        }
+
+        return view('sub-unit-kompetensi.edit', [
+            'unitKompetensi' => $unitKompetensi,
+            'subUnitKompetensi' => $subUnitKompetensi
+        ]);
     }
 
     /**
@@ -103,9 +116,25 @@ class SubUnitKompetensiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $kodeUnit, $id)
     {
-        //
+        $request->validate([
+            'judul' => 'required|max:255'
+        ]);
+
+        $unitKompetensi = UnitKompetensi::where('kode_unit', $kodeUnit)->first();
+
+        if ($unitKompetensi == null) {
+            return back();
+        }
+
+        SubUnitKompetensi::where('id', $id)->update([
+            'judul' => $request->judul,
+        ]);
+
+        Alert::success("Berhasil", "Berhasil Menambahkan Sub Unit Kompetensi");
+
+        return redirect('/unit-kompetensi/' . $unitKompetensi->kode_unit . '/sub');
     }
 
     /**

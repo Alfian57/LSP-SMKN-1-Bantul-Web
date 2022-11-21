@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\MataPelajaran;
+use App\Models\Peserta;
 use App\Models\UnitKompetensi;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PermohonanController extends Controller
 {
@@ -32,18 +34,21 @@ class PermohonanController extends Controller
 
     public function storeData(Request $request)
     {
-        $request->validate([
+        $validatedData = $request->validate([
             'nama' => 'required|max:255',
-            'no_ktp' => 'required|digits:16|max:255',
+            'no_ktp' => 'required|digits:16|max:255|unique:pesertas',
             'tempat_lahir' => 'required|max:255',
             'tanggal_lahir' => 'required',
-            'jenis_kelamin' => 'required|in:laki-laki,perempuan',
+            'jenis_kelamin' => 'required',
             'kebangsaan' => 'required|max:255',
             'alamat' => 'required',
             'kode_post' => 'required|digits:5',
-            'no_telepon' => 'required|digits',
-            'kualiifikasi_pendidikan' => 'required|max:255',
+            'no_telepon' => 'required',
+            'kualifikasi_pendidikan' => 'required|max:255',
         ]);
+
+        Alert::success('Berhasil', 'Peserta Berhasil Didaftarkan');
+        Peserta::create($validatedData);
 
         return redirect('/permohonan-kompetensi/data');
     }
@@ -51,5 +56,12 @@ class PermohonanController extends Controller
     public function bukti()
     {
         return view('permohonan-kompetensi.bukti');
+    }
+
+    public function assesmenMandiri()
+    {
+        return view('permohonan-kompetensi.assesmen-mandiri', [
+            'unitKompetensis' => UnitKompetensi::latest()->get(),
+        ]);
     }
 }

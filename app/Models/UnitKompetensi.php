@@ -18,7 +18,7 @@ class UnitKompetensi extends Model
 
     public function sub_unit_kompetensi()
     {
-        return $this->hasMany(DetailUnitKompetensi::class);
+        return $this->hasMany(SubUnitKompetensi::class);
     }
 
     public function getRouteKeyName()

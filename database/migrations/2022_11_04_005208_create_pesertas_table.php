@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('pesertas', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('no_ktp');
+            $table->string('nama');
+            $table->string('no_ktp')->unique();
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
             $table->string('jenis_kelamin');
