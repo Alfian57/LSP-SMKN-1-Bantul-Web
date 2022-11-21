@@ -43,10 +43,14 @@
                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                 Tables
             </a> --}}
-            <div class="sb-sidenav-menu-heading">Administrator</div>
+            <div class="sb-sidenav-menu-heading">Lain lain</div>
             <a class="nav-link" href="/administrator">
                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                 Administrator
+            </a>
+            <a class="nav-link" href="/siswa">
+                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                Siswa
             </a>
         </div>
     </div>

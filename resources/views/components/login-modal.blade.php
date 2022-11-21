@@ -23,7 +23,6 @@
                     <div class="text-end">
                         <button type="submit" class="btn btn-primary btn-sm">Login</button>
                     </div>
-
                 </div>
             </form>
         </div>

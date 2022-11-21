@@ -6,6 +6,7 @@ use App\Models\MataPelajaran;
 use App\Models\Peserta;
 use App\Models\UnitKompetensi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PermohonanController extends Controller
@@ -17,7 +18,7 @@ class PermohonanController extends Controller
             if ($mapel == null) {
                 return redirect('/permohonan-kompetensi');
             }
-            return view('permohonan-kompetensi.index');
+            return view('permohonan-kompetensi.data-diri');
         }
 
         return view('permohonan-kompetensi.index', [
@@ -25,14 +26,7 @@ class PermohonanController extends Controller
         ]);
     }
 
-    public function data()
-    {
-        return view('permohonan-kompetensi.data', [
-            'unitKompetensis' => UnitKompetensi::with('jenis_standar')->latest()->get()
-        ]);
-    }
-
-    public function storeData(Request $request)
+    public function storeBioData(Request $request)
     {
         $validatedData = $request->validate([
             'nama' => 'required|max:255',
@@ -42,7 +36,7 @@ class PermohonanController extends Controller
             'jenis_kelamin' => 'required',
             'kebangsaan' => 'required|max:255',
             'alamat' => 'required',
-            'kode_post' => 'required|digits:5',
+            'kode_pos' => 'required|digits:5',
             'no_telepon' => 'required',
             'kualifikasi_pendidikan' => 'required|max:255',
         ]);
@@ -51,6 +45,13 @@ class PermohonanController extends Controller
         Peserta::create($validatedData);
 
         return redirect('/permohonan-kompetensi/data');
+    }
+
+    public function data()
+    {
+        return view('permohonan-kompetensi.data', [
+            'unitKompetensis' => UnitKompetensi::with('jenis_standar')->latest()->get()
+        ]);
     }
 
     public function bukti()

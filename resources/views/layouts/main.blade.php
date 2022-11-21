@@ -5,7 +5,7 @@
     <title>LSP SMK Negeri 1 Bantul</title>
 
     <!-- Favicon -->
-    <!-- <link href="img/favicon.ico" rel="icon"> -->
+    {{-- <link href="/img/delete.png" rel="icon"> --}}
 
     <!-- Google Web Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap"

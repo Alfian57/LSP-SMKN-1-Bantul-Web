@@ -1,8 +1,8 @@
-@extends('layouts.dashboard')
+@extends('layouts.main')
 
 @section('content')
-    <h1 class="text-center mb-5">Tambah Peserta</h1>
-    <form action="peserta" method="POST">
+    <h1 class="text-center mb-5">Biodata Diri</h1>
+    <form action="/permohonan-kompetensi/data" method="POST">
         @csrf
         <div class="mb-3">
             <label for="nama" class="form-label fw-bold text-dark">Nama Lengkap</label>

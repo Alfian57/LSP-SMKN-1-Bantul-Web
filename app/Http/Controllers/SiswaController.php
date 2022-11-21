@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Peserta;
+use App\Models\Siswa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class PesertaController extends Controller
+class SiswaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,8 @@ class PesertaController extends Controller
      */
     public function index()
     {
-        return view('peserta.index', [
-            'pesertas' => Peserta::latest()->get()
+        return view('siswa.index', [
+            'siswas' => Siswa::latest()->get()
         ]);
     }
 
@@ -27,7 +28,7 @@ class PesertaController extends Controller
      */
     public function create()
     {
-        return view('peserta.create');
+        return view('siswa.create');
     }
 
     /**
@@ -38,23 +39,22 @@ class PesertaController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+        $request->validate([
             'nama' => 'required|max:255',
-            'no_ktp' => 'required|digits:16|max:255|unique:pesertas',
-            'tempat_lahir' => 'required|max:255',
-            'tanggal_lahir' => 'required',
-            'jenis_kelamin' => 'required',
-            'kebangsaan' => 'required|max:255',
-            'alamat' => 'required',
-            'kode_pos' => 'required|digits:5',
-            'no_telepon' => 'required',
-            'kualifikasi_pendidikan' => 'required|max:255',
+            'email' => 'required|max:255|unique:siswas'
         ]);
 
-        Alert::success('Berhasil', 'Peserta Berhasil Didaftarkan');
-        Peserta::create($validatedData);
+        $data = [
+            'nama' => $request->nama,
+            'email' => $request->email,
+            'password' => Hash::make('password'),
+        ];
 
-        return redirect('/peserta');
+        Siswa::create($data);
+
+        Alert::success("Berhasil", "Berhasil Menambahkan Siswa");
+
+        return redirect('/siswa');
     }
 
     /**
@@ -76,8 +76,8 @@ class PesertaController extends Controller
      */
     public function edit($id)
     {
-        return view('peserta.create', [
-            'peserta' => Peserta::where('id', $id)->first()
+        return view('siswa.edit', [
+            'siswa' => Siswa::where('id', $id)->first()
         ]);
     }
 
@@ -90,7 +90,29 @@ class PesertaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if ($request->old_email == $request->email) {
+            $request->validate([
+                'nama' => 'required|max:255',
+                'email' => 'required|max:255',
+            ]);
+        } else {
+            $request->validate([
+                'nama' => 'required|max:255',
+                'email' => 'required|max:255|unique:users',
+            ]);
+        }
+
+
+        $data = [
+            'nama' => $request->nama,
+            'email' => $request->email
+        ];
+
+        Siswa::where('id', $id)->update($data);
+
+        Alert::success("Berhasil", "Berhasil Mengubah Siswa");
+
+        return redirect('/siswa');
     }
 
     /**
@@ -101,6 +123,9 @@ class PesertaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Siswa::where('id', $id)->delete();
+        Alert::success("Berhasil", "Berhasil Menghapus Siswa");
+
+        return redirect('/siswa');
     }
 }

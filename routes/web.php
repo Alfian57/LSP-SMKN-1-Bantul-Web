@@ -7,6 +7,7 @@ use App\Http\Controllers\JenisStandarController;
 use App\Http\Controllers\MataPelajaranController;
 use App\Http\Controllers\PermohonanController;
 use App\Http\Controllers\PesertaController;
+use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\SubUnitKompetensiController;
 use App\Http\Controllers\UnitKompetensiController;
 use Illuminate\Support\Facades\Route;
@@ -30,7 +31,7 @@ Route::get('/visi-misi', [HomeController::class, 'visiMisi']);
 Route::group(['prefix' => "permohonan-kompetensi"], function () {
     Route::get('/', [PermohonanController::class, 'index']);
     Route::get('/data', [PermohonanController::class, 'data']);
-    Route::post('/data', [PermohonanController::class, 'storeData']);
+    Route::post('/data', [PermohonanController::class, 'storeBioData']);
     Route::get('/bukti', [PermohonanController::class, 'bukti']);
     Route::get('/assesmen-mandiri', [PermohonanController::class, 'assesmenMandiri']);
 });
@@ -46,4 +47,5 @@ Route::group(['middleware' => "auth"], function () {
     Route::resource('/unit-kompetensi', UnitKompetensiController::class);
     Route::resource('/unit-kompetensi/{kodeUnit}/sub', SubUnitKompetensiController::class)->except('show');
     Route::resource('/administrator', AdminController::class)->except('show');
+    Route::resource('/siswa', SiswaController::class)->except('show');
 });
