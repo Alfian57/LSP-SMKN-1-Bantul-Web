@@ -20,6 +20,13 @@
                         <input class="form-control form-control-sm" name="password" type="password"
                             placeholder="Masukan Password Disini">
                     </div>
+                    <div class="mb-3">
+                        <label for="role" class="form-label">Role</label>
+                        <select class="form-select" name="role" required>
+                            <option value="siswa">Siswa</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
                     <div class="text-end">
                         <button type="submit" class="btn btn-primary btn-sm">Login</button>
                     </div>

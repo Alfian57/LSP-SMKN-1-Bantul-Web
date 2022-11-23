@@ -2,7 +2,7 @@
 
 @section('content')
     <h1 class="text-center mb-5">Tambah Peserta</h1>
-    <form action="peserta" method="POST">
+    <form action="/peserta" method="POST">
         @csrf
         <div class="mb-3">
             <label for="nama" class="form-label fw-bold text-dark">Nama Lengkap</label>
@@ -85,7 +85,7 @@
         <div class="mb-3">
             <label for="alamat" class="form-label fw-bold text-dark">Alamat</label>
             <textarea type="text" class="form-control  @error('alamat') is-invalid @enderror" name="alamat" id="alamat"
-                placeholder="Masukan Alamat" rows="5" value="{{ old('alamat') }}" required></textarea>
+                placeholder="Masukan Alamat" rows="5" required>{{ old('alamat') }}</textarea>
             @error('alamat')
                 <div class="invalid-feedback">
                     {{ $message }}

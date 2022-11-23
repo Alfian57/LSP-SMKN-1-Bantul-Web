@@ -27,10 +27,10 @@
                         <td>{{ $peserta->nama }}</td>
                         <td>{{ $peserta->no_telepon }}</td>
                         <td>
-                            <a href="/administrator/{{ $peserta->id }}/edit" class="btn btn-warning btn-sm my-1">
+                            <a href="/peserta/{{ $peserta->id }}/edit" class="btn btn-warning btn-sm my-1">
                                 <img src="/img/edit.png" alt="Edit" class="img-fluid icon">
                             </a>
-                            <form action="/administrator/{{ $peserta->id }}" method="post" class="d-inline-block">
+                            <form action="/peserta/{{ $peserta->id }}" method="post" class="d-inline-block">
                                 @method('delete')
                                 @csrf
                                 <button type="submit" class="btn btn-danger btn-sm my-1"

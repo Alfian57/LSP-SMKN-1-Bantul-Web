@@ -76,7 +76,7 @@ class PesertaController extends Controller
      */
     public function edit($id)
     {
-        return view('peserta.create', [
+        return view('peserta.edit', [
             'peserta' => Peserta::where('id', $id)->first()
         ]);
     }
@@ -90,7 +90,39 @@ class PesertaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if ($request->old_no_ktp == $request->no_ktp) {
+            $validatedData = $request->validate([
+                'nama' => 'required|max:255',
+                'no_ktp' => 'required|digits:16|max:255',
+                'tempat_lahir' => 'required|max:255',
+                'tanggal_lahir' => 'required',
+                'jenis_kelamin' => 'required',
+                'kebangsaan' => 'required|max:255',
+                'alamat' => 'required',
+                'kode_pos' => 'required|digits:5',
+                'no_telepon' => 'required',
+                'kualifikasi_pendidikan' => 'required|max:255',
+            ]);
+        } else {
+            $validatedData = $request->validate([
+                'nama' => 'required|max:255',
+                'no_ktp' => 'required|digits:16|max:255|unique:pesertas',
+                'tempat_lahir' => 'required|max:255',
+                'tanggal_lahir' => 'required',
+                'jenis_kelamin' => 'required',
+                'kebangsaan' => 'required|max:255',
+                'alamat' => 'required',
+                'kode_pos' => 'required|digits:5',
+                'no_telepon' => 'required',
+                'kualifikasi_pendidikan' => 'required|max:255',
+            ]);
+        }
+
+
+        Alert::success('Berhasil', 'Peserta Berhasil Diupdate');
+        Peserta::where('id', $id)->update($validatedData);
+
+        return redirect('/peserta');
     }
 
     /**
@@ -101,6 +133,9 @@ class PesertaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Peserta::where('id', $id)->delete();
+        Alert::success("Berhasil", "Berhasil Menghapus Peserta");
+
+        return redirect('/peserta');
     }
 }

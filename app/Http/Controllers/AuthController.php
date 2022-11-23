@@ -25,19 +25,34 @@ class AuthController extends Controller
             'password' => $request->password
         ];
 
-        if (Auth::attempt($creds)) {
-            $request->session()->regenerate();
+        if ($request->role == "siswa") {
+            if (Auth::guard('siswa')->attempt($creds)) {
+                $request->session()->regenerate();
 
-            return redirect('/dashboard');
+                return redirect('/dashboard');
+            }
+        } else {
+            if (Auth::guard('user')->attempt($creds)) {
+                $request->session()->regenerate();
+
+                return redirect('/dashboard');
+            }
         }
+
 
         Alert::error('Login Gagal', "Akun Tidak Ditemukan");
         return redirect()->back();
     }
 
-    public function logout()
+    public function adminLogout()
     {
-        Auth::logout();
+        Auth::guard('user')->logout();
+        return redirect('/beranda');
+    }
+
+    public function siswaLogout()
+    {
+        Auth::guard('siswa')->logout();
         return redirect('/beranda');
     }
 }

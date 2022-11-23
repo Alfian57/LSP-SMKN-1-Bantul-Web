@@ -23,10 +23,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/admin/login', [AuthController::class, 'validateUser']);
-Route::post('/admin/logout', [AuthController::class, 'logout']);
+Route::post('/admin/logout', [AuthController::class, 'adminLogout']);
+Route::post('/siswa/logout', [AuthController::class, 'siswaLogout']);
 
 Route::get('/beranda', [HomeController::class, 'beranda'])->name('login');
 Route::get('/visi-misi', [HomeController::class, 'visiMisi']);
+Route::get('/skema-sertifikasi', [HomeController::class, 'skemaSertifikasi']);
+Route::get('/struktur-organisasi', [HomeController::class, 'strukturOrganisasi']);
+Route::get('/detail1', [HomeController::class, 'detail1']);
+Route::get('/detail2', [HomeController::class, 'detail2']);
+Route::get('/detail3', [HomeController::class, 'detail3']);
+Route::get('/tempat-unit-kompetensi', [HomeController::class, 'tempatUnitKompetensi']);
+Route::get('/kontak', [HomeController::class, 'kontak']);
 
 Route::group(['prefix' => "permohonan-kompetensi"], function () {
     Route::get('/', [PermohonanController::class, 'index']);
@@ -36,7 +44,7 @@ Route::group(['prefix' => "permohonan-kompetensi"], function () {
     Route::get('/assesmen-mandiri', [PermohonanController::class, 'assesmenMandiri']);
 });
 
-Route::group(['middleware' => "auth"], function () {
+Route::group(['middleware' => "auth:user"], function () {
     Route::get("/dashboard", function () {
         return view('layouts.dashboard');
     });
