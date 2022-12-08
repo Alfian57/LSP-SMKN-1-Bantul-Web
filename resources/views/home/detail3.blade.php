@@ -86,7 +86,7 @@
                                 <td class="text-center">12.</td>
                                 <td align="center" style="width: 30%">J.620100.042.01</td>
                                 <td>Melaksanakan Konfigurasi Perangkat Lunak Sesuai Environment
-                                    Development, Staqinq.Productlon </td>
+                                    (Development, Staging, Productlon)</td>
                             </tr>
                             <tr>
                                 <td class="text-center">13.</td>

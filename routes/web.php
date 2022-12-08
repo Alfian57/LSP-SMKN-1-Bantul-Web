@@ -33,7 +33,7 @@ Route::get('/struktur-organisasi', [HomeController::class, 'strukturOrganisasi']
 Route::get('/detail1', [HomeController::class, 'detail1']);
 Route::get('/detail2', [HomeController::class, 'detail2']);
 Route::get('/detail3', [HomeController::class, 'detail3']);
-Route::get('/tempat-unit-kompetensi', [HomeController::class, 'tempatUnitKompetensi']);
+Route::get('/tempat-uji-kompetensi', [HomeController::class, 'tempatUjiKompetensi']);
 Route::get('/kontak', [HomeController::class, 'kontak']);
 
 Route::group(['prefix' => "permohonan-kompetensi"], function () {

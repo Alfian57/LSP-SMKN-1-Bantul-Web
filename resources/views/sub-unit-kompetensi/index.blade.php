@@ -44,5 +44,7 @@
             </table>
         </div>
     @endif
-
+<div class="text-end">
+        <a href="/unit-kompetensi" class="btn btn-primary my-3">Back</a>
+    </div>
 @endsection

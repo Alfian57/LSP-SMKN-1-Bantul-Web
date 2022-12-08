@@ -124,7 +124,7 @@
             @enderror
         </div>
         <div class="text-end">
-            <button type="submit" class="btn btn-primary my-3">Tambah</button>
+            <button type="submit" class="btn btn-primary my-3">Selanjutnya</button>
         </div>
     </form>
 @endsection

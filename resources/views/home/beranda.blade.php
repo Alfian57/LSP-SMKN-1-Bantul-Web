@@ -1,7 +1,11 @@
 @extends('layouts.main')
 
 @section('content')
-    <h1>Belum Jadi</h1>
+    <h1>LSP SMK NEGERI 1 BANTUL</h1>
+    <p>Lembaga Sertifikasi Profesi (LSP) Sekolah Menengah Kejuruan (SMK) digunakan untuk memberikan layanan pelaksanaan sertifikasi kompetensi bagi siswa SMK. 
+        Pengembangan skema sertifikasi LSP SMK Negeri 1 Bantul bekerjasama dengan Dunia Usaha/Dunia Industri (DU/DI) sebagai Komite Skema LSP SMK Negeri 1 Bantul untuk senantiasa memelihara Materi Uji Kompetensi (MUK) agar tetap sesuai dengan kebutuhan industri.
+        LSP SMK Negeri 1 Bantul  berlokasi di Kabupaten Bantul, Daerah Istimewa Yogyakarta. 
+        Beroperasi di bawah naungan Dinas Pendidikan Menengah dan Nonformal Kabupaten Bantul.</p>
     {{-- <div class="container-fluid p-0">
         <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">

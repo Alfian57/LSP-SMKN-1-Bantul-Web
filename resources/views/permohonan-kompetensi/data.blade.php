@@ -8,12 +8,14 @@
             <td rowspan="2">Skema Sertifikasi (KKNI/Okupasi/Klaster)</td>
             <td>Judul</td>
             <td>:</td>
-            <td>Judul 1</td>
+            <td>SKEMA  SERTIFIKASI  KKNI  LEVEL  II PADA KOMPETENSI  KEAHLIAN REKAYASA  PERANGKAT  LUNAK
+                (Klaster Pemrograman Berorientasi Objek)
+            </td>
         </tr>
         <tr>
             <td>Nomor</td>
             <td>:</td>
-            <td>no</td>
+            <td>5.7.3</td>
         </tr>
         <tr>
             <td rowspan="5" colspan="2">Tujuan Asesmen</td>
@@ -95,4 +97,7 @@
             @endforeach
         </table>
     @endif
+    <div class="text-end">
+            <button type="submit" class="btn btn-primary my-3" href="/bukti">Selanjutnya</button>
+        </div>
 @endsection

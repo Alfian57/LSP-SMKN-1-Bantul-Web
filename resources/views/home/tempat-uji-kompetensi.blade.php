@@ -28,7 +28,7 @@
                             <td align="center">
                                 <b>1.</b>
                             </td>
-                            <td>TUK SMK NEGERI 1 BANTUL </td>
+                            <td>SMK NEGERI 1 BANTUL</td>
                             <td>Jl. Parangtritis No.KM.11, Dukuh, Sabdodadi, Kec. Bantul,
                                 Kabupaten Bantul, Daerah Istimewa Yogyakarta 55715</td>
                             <td class="text-center" width="15%">0274-367156</td>

@@ -26,7 +26,7 @@ class AuthController extends Controller
         ];
 
         if ($request->role == "siswa") {
-            if (Auth::guard('siswa')->attempt($creds)) {
+            if (Auth::attempt($creds)) {
                 $request->session()->regenerate();
 
                 return redirect('/dashboard');
@@ -52,7 +52,7 @@ class AuthController extends Controller
 
     public function siswaLogout()
     {
-        Auth::guard('siswa')->logout();
+        Auth::logout();
         return redirect('/beranda');
     }
 }

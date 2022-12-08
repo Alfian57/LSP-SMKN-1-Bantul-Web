@@ -41,9 +41,9 @@ class HomeController extends Controller
         return view('home.detail3');
     }
 
-    public function tempatUnitKompetensi()
+    public function tempatUjiKompetensi()
     {
-        return view('home.tuk');
+        return view('home.tempat-uji-kompetensi');
     }
 
     public function kontak()

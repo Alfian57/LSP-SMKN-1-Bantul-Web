@@ -3,7 +3,7 @@
 
 <head>
     <title>Admin Dashboard</title>
-
+    <link rel="shortcut icon" href="/img/user.png" alt="Logo">
     <link href="/css/dashboard.css" rel="stylesheet" />
 
     {{-- Bootstrap --}}

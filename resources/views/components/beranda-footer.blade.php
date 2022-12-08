@@ -2,12 +2,12 @@
     <div class="row g-5">
         <div class="col-lg-6 pe-lg-5 mb-3">
             <a href="index.html" class="navbar-brand">
-                <h1 class="m-0 display-0 text-uppercase text-white"><img src="/img/logo.png" alt="Logo"
-                        class="img-fluid me-2 logo">LSP</h1>
+                <h2 class="m-0 display-0 text-uppercase text-white"><img src="/img/logo.png" alt="Logo"
+                        class="img-fluid me-2 logo">LSP SMK Negeri 1 Bantul</h2>
             </a>
-            <p>Sekolah Menengah Kejuruan Negeri 1 Bantul adalah sekolah menengah kejuruan yang berlokasi di
-                Kabupaten Bantul, Daerah Istimewa Yogyakarta. Sekolah ini resmi didirikan pada 4 Juni 1968 dan
-                beroperasi di bawah naungan Dinas Pendidikan Menengah dan Nonformal Kabupaten Bantul.</p>
+            <p>LSP SMK digunakan untuk memberikan layanan pelaksanaan sertifikasi kompetensi bagi siswa SMK. 
+                Pengembangan skema sertifikasi LSP SMK Negeri 1 Bantul bekerjasama dengan Dunia Usaha/Dunia Industri (DU/DI) sebagai Komite Skema LSP SMK Negeri 1 Bantul untuk senantiasa memelihara Materi Uji Kompetensi (MUK) agar tetap sesuai dengan kebutuhan industri.
+            </p>
             <p><i class="fa fa-map-marker-alt me-2"></i>Jl. Parangtritis No.KM.11, Dukuh, Sabdodadi, Kec. Bantul,
                 Kabupaten Bantul, Daerah Istimewa Yogyakarta 55715</p>
             <p><i class="fa fa-phone-alt me-2"></i>0274-367156</p>
@@ -28,14 +28,14 @@
                 <div class="col-sm-6">
                     <h4 class="text-white text-uppercase mb-4">Link Terkait</h4>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-white-50 mb-2 text-decoration-none" href="#"><i
+                        <a class="text-white-50 mb-2 text-decoration-none" href="/beranda"><i
                                 class="fa fa-angle-right me-2"></i>Beranda</a>
-                        <a class="text-white-50 mb-2 text-decoration-none" href="#"><i
+                        <a class="text-white-50 mb-2 text-decoration-none" href="/permohonan-kompetensi"><i
                                 class="fa fa-angle-right me-2"></i>Uji
                             Kompetensi</a>
-                        <a class="text-white-50 mb-2 text-decoration-none" href="#"><i
+                        <a class="text-white-50 mb-2 text-decoration-none" href="/skema-sertifikasi"><i
                                 class="fa fa-angle-right me-2 text-decoration-none"></i>Sertifikasi</a>
-                        <a class="text-white-50 text-decoration-none" href="#"><i
+                        <a class="text-white-50 text-decoration-none" href="/kontak"><i
                                 class="fa fa-angle-right me-2"></i>Kontak</a>
                     </div>
                 </div>

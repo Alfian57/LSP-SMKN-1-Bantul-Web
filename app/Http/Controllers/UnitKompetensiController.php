@@ -42,7 +42,7 @@ class UnitKompetensiController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'kode_unit' => 'required|alpha_dash|max:255|unique:unit_kompetensis',
+            'kode_unit' => 'required|max:255|unique:unit_kompetensis',
             'judul' => 'required|max:255',
             'jenis_standar_id' => 'required',
         ]);
@@ -95,13 +95,13 @@ class UnitKompetensiController extends Controller
     {
         if ($request->old_kode_unit == $request->kode_unit) {
             $validatedData = $request->validate([
-                'kode_unit' => 'required|alpha_dash|max:255',
+                'kode_unit' => 'required|max:255',
                 'judul' => 'required|max:255',
                 'jenis_standar_id' => 'required',
             ]);
         } else {
             $validatedData = $request->validate([
-                'kode_unit' => 'required|alpha_dash|max:255|unique:unit_kompetensis',
+                'kode_unit' => 'required|max:255|unique:unit_kompetensis',
                 'judul' => 'required|max:255',
                 'jenis_standar_id' => 'required',
             ]);
